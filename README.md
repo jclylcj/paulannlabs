@@ -1,22 +1,23 @@
-# Paul Ann Media — Astro site
+# Paul Ann Labs — Astro site
 
-A Trimmie Holdings company. Sister to Paul Ann Labs.
+A Trimmie Holdings company. Sister to Paul Ann Media.
 
 ---
 
-## Deploy (same pattern as HomeTimeJobs)
+## Deploy (same pattern as the other two)
 
-1. Create a new GitHub repo named `paulannmedia`
-2. Create one file in it first (`.gitignore`) so the `main` branch exists
-3. Go to `github.com/jclylcj/paulannmedia/upload/main`
+1. Create a new GitHub repo named `paulannlabs`
+2. Create `.gitignore` in it first so the `main` branch exists
+3. Go to `github.com/jclylcj/paulannlabs/upload/main`
 4. Open this folder, go **inside** it, Ctrl+A, drag everything onto the page
-5. Scroll down, click the green **Commit changes** button — this is the step that saves it
-6. In Netlify: **Add new site → Import an existing project → GitHub → paulannmedia**
-7. Domain management → Add domain → `paulannmedia.com`
-8. In GoDaddy DNS for paulannmedia.com:
+5. Scroll down, click the green **Commit changes** button
+6. Netlify: **Add new project → Import an existing project → GitHub → paulannlabs**
+   - Set project name to `paulannlabs` so the URL isn't random
+7. Click **Make public** after the first successful deploy
+8. Domain management → Add a domain → `paulannlabs.com`
+9. GoDaddy DNS for paulannlabs.com:
    - **A** record, name `@`, value `75.2.60.5`
-   - **CNAME**, name `www`, value `<your-netlify-subdomain>.netlify.app`
-9. Netlify → Project configuration → **Visitor access** → set visibility to **Public**
+   - **CNAME**, name `www`, value `paulannlabs.netlify.app`
 
 ---
 
@@ -29,38 +30,56 @@ src/
 │   ├── Header.astro
 │   └── Footer.astro
 └── pages/
-    ├── index.astro            Positioning, services, owned products, contact
-    ├── services.astro         Six service lines + pricing approach
-    ├── work.astro             HomeTimeJobs, Paul Ann Labs, client work
-    └── about.astro            Origin, family structure, operating principles
+    ├── index.astro            Positioning, five phases, Stems + Peppermint
+    ├── methodology.astro      Strangler Fig in detail + FAQPage schema
+    ├── peppermint.astro       Reskilling program, maturity curve + FAQPage schema
+    └── about.astro            Origin, internal-owner principle, family
 
 public/
 ├── robots.txt                 AI crawlers explicitly allowed
-└── llms.txt                   Company summary and positions for language models
+└── llms.txt                   Methodology, pricing, and positions for language models
 ```
 
 ---
 
 ## Palette
 
-Teal-forward, distinguishing it from HomeTimeJobs (gold-forward) while staying
-in the same family.
+Fig green, distinguishing Labs from Paul Ann Media (teal) and HomeTimeJobs (gold)
+while staying in the same navy-grounded family. Green ties to the Strangler Fig
+metaphor rather than being arbitrary.
 
 | Token | Hex | Use |
 |---|---|---|
 | navy | `#1A2F3D` | ground, headers, footers |
-| teal | `#2AA09A` | primary accent, CTAs |
+| fig | `#4A9D6E` | primary accent, CTAs |
 | gold | `#D4883A` | reserved, sparing |
 | cream | `#F5F0EB` | page background |
 | slate | `#7C8A8A` | secondary text |
 
 ---
 
+## Copy decisions worth knowing
+
+**No Empire Express claims anywhere.** The provenance record establishes that the
+specific agent systems built at Empire belong to Empire. The site therefore
+references the methodology's origin as "doing the work" and "real operations"
+without naming a client or claiming any deployed system as a Paul Ann Labs product.
+Keep it that way until there's a written agreement saying otherwise.
+
+**Pricing is published.** Phase One at $800–$2,000/mo and the audit at $5,000–$15,000
+are stated openly on the methodology page and in llms.txt. This filters inquiries
+before they reach a call. Remove it if you'd rather qualify manually.
+
+**"Stopping early is fine" is deliberate.** It disarms the main objection to phased
+consulting — that phase one is a wedge for an endless engagement.
+
+---
+
 ## Still to do
 
-1. **Logo and favicon** — currently a text wordmark. Same treatment as HomeTimeJobs.
-2. **Email** — `hello@paulannmedia.com` is referenced throughout but doesn't exist yet.
-   Cloudflare Email Routing forwards it free; set that up before driving any traffic.
-3. **Client case studies** — the `/work` page has a placeholder section.
-4. **Contact form** — currently mailto only. Add Netlify Forms when you want submissions
-   tracked, plus a privacy policy at that point.
+1. **Logo and favicon** — text wordmark currently. Same treatment as the other two.
+2. **Email** — `hello@paulannlabs.com` is referenced throughout and does not exist.
+3. **PAL agent product** — referenced in planning but not on the site yet, since it
+   doesn't exist. Add when it does.
+4. **Case study** — the strongest proof is the Empire work, which is the most
+   constrained to publish. The insulation-products engagement is the clean substitute.

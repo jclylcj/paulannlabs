@@ -22,4 +22,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://paulannmedia.com/sitemap-index.xml
+Sitemap: https://paulannlabs.com/sitemap-index.xml

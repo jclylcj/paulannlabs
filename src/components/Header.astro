@@ -1,23 +1,23 @@
 ---
 const links = [
-  { href: '/services', label: 'Services' },
-  { href: '/work', label: 'Work' },
+  { href: '/methodology', label: 'Methodology' },
+  { href: '/peppermint', label: 'Peppermint' },
   { href: '/about', label: 'About' },
 ];
 ---
 <header class="bg-navy text-cream">
   <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-5">
-    <a href="/" aria-label="Paul Ann Media home" class="flex items-center">
-      <img src="/logo.svg" alt="Paul Ann Media" class="h-11 w-auto" width="400" height="120" />
+    <a href="/" class="text-lg font-bold tracking-tight">
+      Paul Ann <span class="text-fig">Labs</span>
     </a>
     <div class="hidden gap-7 text-sm md:flex">
       {links.map(l => (
-        <a href={l.href} class="hover:text-teal transition-colors">{l.label}</a>
+        <a href={l.href} class="hover:text-fig transition-colors">{l.label}</a>
       ))}
     </div>
     <a href="/#contact"
-       class="rounded bg-teal px-4 py-2 text-sm font-semibold text-navy hover:bg-teal-light transition-colors">
-      Start a Conversation
+       class="rounded bg-fig px-4 py-2 text-sm font-semibold text-navy hover:bg-fig-light transition-colors">
+      Start Phase One
     </a>
   </nav>
 </header>

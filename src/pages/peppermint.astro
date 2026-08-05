@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const levels = [
+  { n: '0', name: 'Manual', body: 'Work happens by hand. Tools exist but nobody trusts them with anything that matters.' },
+  { n: '1', name: 'Assisted', body: 'AI used occasionally and individually. One person drafts emails with it. No shared practice.' },
+  { n: '2', name: 'Applied', body: 'Specific tasks reliably handled with AI. People know what it is good at and what it is not.' },
+  { n: '3', name: 'Integrated', body: 'AI is part of how a process runs, not an extra step someone remembers to take.' },
+  { n: '4', name: 'Delegated', body: 'Work is handed off with defined boundaries and checked on exception rather than by default.' },
+  { n: '5', name: 'Owned', body: 'The team builds and adjusts its own automations without waiting for outside help.' },
+];
+
+const faqs = [
+  {
+    q: 'What is Peppermint?',
+    a: 'A reskilling program that trains the people already working at a company to operate in an AI-augmented environment. It is structured around an automation maturity curve running from Level 0, fully manual work, to Level 5, where a team builds and maintains its own automations without external help.'
+  },
+  {
+    q: 'Who is Peppermint for?',
+    a: 'Existing employees rather than new hires, and specifically the people whose roles are most exposed to automation. The premise is that reskilling someone who already understands the business is faster and cheaper than replacing them with someone who understands the tools but not the work.'
+  },
+  {
+    q: 'How is it delivered?',
+    a: 'Over roughly six weeks, led by an internal champion identified during the Strangler Fig audit rather than by an outside trainer. Outside instruction ends when the engagement ends; an internal owner persists.'
+  },
+  {
+    q: 'Can Peppermint be bought on its own?',
+    a: 'Yes. It is bundled into the audit phase of a Strangler Fig deployment but is also available as a standalone program for companies that want to raise their team capability before committing to any systems work.'
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+---
+<Layout
+  title="Peppermint — AI Reskilling for the People You Already Have"
+  description="A six-week reskilling program built around an automation maturity curve, delivered by an internal champion rather than an outside trainer."
+  schema={schema}
+>
+  <article class="mx-auto max-w-3xl px-5 py-20">
+    <p class="text-sm font-semibold uppercase tracking-widest text-fig">Peppermint</p>
+    <h1 class="mt-4 text-4xl font-bold">Train the people you already have.</h1>
+    <p class="mt-5 text-lg text-slate">
+      The reflex when AI arrives is to hire someone who knows the tools. The problem is
+      that person doesn't know your business, and the person who does know your business
+      is the one you were about to make redundant.
+    </p>
+    <p class="mt-4 text-lg text-slate">
+      Peppermint runs the other direction. Teach the operator the tool rather than teaching
+      the tool operator your operation. It's faster, it's cheaper, and it keeps the
+      institutional knowledge you spent years accumulating.
+    </p>
+
+    <h2 class="mt-16 text-2xl font-bold">The automation curve</h2>
+    <p class="mt-2 text-slate">
+      Every team sits somewhere on this. Most companies think they're a level higher than
+      they are.
+    </p>
+    <div class="mt-8 space-y-4">
+      {levels.map(l => (
+        <div class="flex gap-6 rounded-lg border border-navy/10 bg-white p-6">
+          <span class="text-xl font-bold text-fig">L{l.n}</span>
+          <div>
+            <p class="font-semibold text-navy">{l.name}</p>
+            <p class="mt-1 text-sm text-slate">{l.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <h2 class="mt-16 text-2xl font-bold">Delivered from the inside</h2>
+    <p class="mt-3 text-slate">
+      Peppermint is led by the <strong class="text-navy">Stem</strong> — the internal
+      champion identified during the operational audit. Not a consultant flown in for a
+      workshop. The difference matters: an outside trainer leaves, and the capability
+      leaves with them. An internal owner is still there in six months when someone has
+      a question.
+    </p>
+
+    <h2 class="mt-12 text-2xl font-bold">What it is not</h2>
+    <ul class="mt-4 space-y-3 text-slate">
+      <li><strong class="text-navy">Not a seminar.</strong> A one-day workshop changes nothing and everyone knows it.</li>
+      <li><strong class="text-navy">Not prompt tricks.</strong> Tactics expire. The curve is about how work gets structured.</li>
+      <li><strong class="text-navy">Not a layoff plan.</strong> The entire premise is keeping people by making them more capable.</li>
+    </ul>
+
+    <h2 class="mt-16 text-2xl font-bold">Common questions</h2>
+    <div class="mt-6 space-y-6">
+      {faqs.map(f => (
+        <div>
+          <p class="font-semibold text-navy">{f.q}</p>
+          <p class="mt-1 text-slate">{f.a}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-16 rounded-lg border border-navy/10 bg-white p-8">
+      <h2 class="text-xl font-semibold">Ask about a cohort</h2>
+      <p class="mt-3 text-slate">
+        Available bundled with a Strangler Fig deployment or on its own.
+      </p>
+      <a href="mailto:hello@paulannlabs.com"
+         class="mt-5 inline-block rounded bg-fig px-6 py-3 font-semibold text-navy hover:bg-fig-light transition-colors">
+        hello@paulannlabs.com
+      </a>
+    </div>
+  </article>
+</Layout>

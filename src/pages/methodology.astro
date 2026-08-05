@@ -1,0 +1,113 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const faqs = [
+  {
+    q: 'What is the Strangler Fig methodology?',
+    a: 'A phased approach to deploying AI inside an existing business without replacing the systems already in use. An intelligence layer is deployed alongside current software, begins interpreting the data those systems already produce, and progressively takes on more work until the original tools become optional. The name comes from the strangler fig, which grows around a host tree rather than displacing it directly.'
+  },
+  {
+    q: 'Why not just replace the legacy software?',
+    a: 'Replacement projects fail at high rates in small and mid-sized businesses because they require migration, retraining, and a period where nothing works properly. Most owners correctly refuse that risk. A layered approach produces value in the first phase and never creates a moment where the business cannot operate.'
+  },
+  {
+    q: 'How long does a Strangler Fig deployment take?',
+    a: 'Phase One runs on a monthly basis and produces visible output within weeks. Later phases depend on the complexity of the operation and how quickly an internal owner takes responsibility. Many engagements deliberately stop after the second or third phase, which is a legitimate outcome rather than a failure.'
+  },
+  {
+    q: 'What does it cost to start?',
+    a: 'Phase One is a monthly retainer in the range of $800 to $2,000 depending on scope. The operational audit in the third phase is a fixed project fee, typically $5,000 to $15,000. Later phases are priced per engagement.'
+  },
+  {
+    q: 'Who is this for?',
+    a: 'Owner-operated businesses roughly between $10 million and $100 million in revenue, running established systems, where the person in charge suspects they are falling behind on AI but has no appetite for a rip-and-replace project. Industry is largely irrelevant; the pattern repeats across trucking, distribution, manufacturing, and building trades.'
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+---
+<Layout
+  title="The Strangler Fig Methodology — Paul Ann Labs"
+  description="A five-phase approach to deploying AI inside an existing business without replacing the systems already running."
+  schema={schema}
+>
+  <article class="mx-auto max-w-3xl px-5 py-20">
+    <h1 class="text-4xl font-bold">The Strangler Fig methodology</h1>
+    <p class="mt-5 text-lg text-slate">
+      In a rainforest, a fig seed lands in the canopy of a host tree and sends roots down
+      its trunk. It doesn't attack. It grows alongside, using the host's structure, until
+      the fig can hold its own weight. Eventually the tree is gone and the fig is standing
+      where it stood.
+    </p>
+    <p class="mt-4 text-lg text-slate">
+      That's the deployment model. Your systems keep running. The layer grows around them.
+      No migration weekend, no moment where the business can't operate.
+    </p>
+
+    <h2 class="mt-16 text-2xl font-bold">Phase One — Launch</h2>
+    <p class="mt-3 text-slate">
+      One process, contained. We pick something with a clear boundary and real friction —
+      often a report someone builds by hand every week. Nothing else changes. The goal is
+      a working thing in weeks, not a roadmap in months.
+    </p>
+
+    <h2 class="mt-12 text-2xl font-bold">Phase Two — Interpret</h2>
+    <p class="mt-3 text-slate">
+      The layer starts reading what your systems already emit. Not new data collection —
+      interpretation of what's already there. This is where owners typically see something
+      about their own operation they'd never had surfaced before.
+    </p>
+
+    <h2 class="mt-12 text-2xl font-bold">Phase Three — Understand</h2>
+    <p class="mt-3 text-slate">
+      A full operational audit. What happens in a week, who touches it, where hours
+      disappear, and what the vendor stack actually costs versus what it's used for.
+      This phase produces a blueprint and usually pays for itself in cancelled software.
+    </p>
+    <p class="mt-3 text-slate">
+      It also identifies the <strong class="text-navy">Stem</strong> — the person inside
+      your company who should own this going forward.
+    </p>
+
+    <h2 class="mt-12 text-2xl font-bold">Phase Four — Replace</h2>
+    <p class="mt-3 text-slate">
+      The layer moves from observing to doing. One function at a time, with the old system
+      still in place until nobody's reaching for it. Reversible at every step, which is
+      what makes it safe enough to actually attempt.
+    </p>
+
+    <h2 class="mt-12 text-2xl font-bold">Phase Five — Own</h2>
+    <p class="mt-3 text-slate">
+      The business operates through an AI-native interface. Legacy vendors become archives
+      rather than dependencies. Critically, your Stem runs it — not us. An engagement that
+      ends with permanent reliance on the consultant has failed regardless of what it built.
+    </p>
+
+    <div class="mt-16 rounded-lg border border-navy/10 bg-white p-8">
+      <h2 class="text-xl font-semibold">Stopping early is fine</h2>
+      <p class="mt-3 text-slate">
+        Most engagements don't reach Phase Five, and shouldn't. Plenty of businesses get
+        what they need from Interpret and Understand and stop there. A methodology that
+        only pays off at the end is a trap; each phase has to stand on its own.
+      </p>
+    </div>
+
+    <h2 class="mt-16 text-2xl font-bold">Common questions</h2>
+    <div class="mt-6 space-y-6">
+      {faqs.map(f => (
+        <div>
+          <p class="font-semibold text-navy">{f.q}</p>
+          <p class="mt-1 text-slate">{f.a}</p>
+        </div>
+      ))}
+    </div>
+  </article>
+</Layout>

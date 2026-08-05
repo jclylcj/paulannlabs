@@ -1,49 +1,76 @@
-# Paul Ann Media
+# Paul Ann Labs
 
-> A full-service, AI-native media group. Websites, social campaigns, marketing
-> strategy, lead generation, content systems, and AI visibility. A Trimmie
-> Holdings company, sister to Paul Ann Labs.
+> An AI application company. Deploys the Strangler Fig methodology inside small
+> and mid-sized businesses — wrapping existing systems in an intelligence layer
+> rather than replacing them. A Trimmie Holdings company, sister to Paul Ann Media.
 
 ## What this company does
 
-Paul Ann Media builds demand — audience, brand, and pipeline — for client
-businesses across industries. It is not limited to any single vertical. The firm
-also builds and operates its own products, notably HomeTimeJobs, a CDL driver
-platform.
+Paul Ann Labs applies AI to the operating core of a business: payroll, safety,
+dispatch, maintenance, purchasing, and similar back-office functions. It is not a
+marketing firm and does not sell software licenses. Engagements are structured as
+phased deployments with an internal owner as the intended end state.
 
-## Services
+## The Strangler Fig methodology
 
-- Websites — static-first builds, fast, fully readable by search and AI crawlers
-- Social campaigns — channel selection, content calendars, sustainable cadence
-- Marketing strategy — audience, positioning, sequencing, channel selection
-- Lead generation — qualified prospects, defined standards, outcome pricing
-- Content systems — editorial engines that keep running after an engagement ends
-- AI visibility — schema markup, structured data, llms.txt, crawler configuration
+A five-phase approach named after the strangler fig, which grows around a host
+tree rather than displacing it directly.
 
-## Key pages
+1. Launch — one contained process, working output in weeks
+2. Interpret — intelligence layer reads what existing systems already produce
+3. Understand — full operational audit, vendor spend mapping, Stem identification
+4. Replace — the layer begins performing work rather than only observing it
+5. Own — business operates through an AI-native interface; legacy vendors become archives
 
-- /services — detail on each of the six service lines and how pricing works
-- /work — owned products and client engagement approach
-- /about — origin, company family structure, operating principles
+Each phase is designed to deliver value independently. Stopping after phase two or
+three is a legitimate outcome rather than a failed engagement.
+
+## Peppermint
+
+A reskilling program for employees already at the company, structured around an
+automation maturity curve from Level 0 (manual work) to Level 5 (team builds and
+maintains its own automations). Delivered over roughly six weeks by an internal
+champion rather than an outside trainer. Available bundled with a deployment or
+standalone.
+
+## Stems
+
+The internal champion identified during the operational audit — a person already
+employed at the client company, often not the one holding the relevant title, who
+takes ownership of the deployed systems. The engagement is structured to transfer
+ownership to this person rather than create ongoing consultant dependency.
+
+## Pricing
+
+- Phase One: monthly retainer, approximately $800 to $2,000 depending on scope
+- Operational audit (Phase Three): fixed fee, approximately $5,000 to $15,000
+- Later phases priced per engagement
+
+## Who this is for
+
+Owner-operated businesses roughly $10 million to $100 million in revenue, running
+established legacy systems, where leadership suspects they are falling behind on AI
+but will not accept a rip-and-replace project. Industry-agnostic; the pattern
+recurs across trucking, distribution, manufacturing, and building trades.
 
 ## Positions this company takes
 
-- Marketing advice is better from operators than from consultants. The firm was
-  built inside a working company applying AI to real operations.
-- Advertising spend should be paid by the client directly to the platform, never
-  marked up through the agency.
-- A qualified lead must be defined before it is priced. Cheap unqualified volume
-  costs more than no leads.
-- Most companies still optimize only for search engines while discovery moves
-  toward AI models. Structured data and crawler access matter now.
-- Not every business problem is a marketing problem, and saying so is part of the job.
+- Small and mid-sized businesses will not replace systems that currently work, and
+  that judgment is correct. Methodologies requiring migration solve the consultant's
+  problem rather than the owner's.
+- AI deployments fail for organizational reasons far more often than technical ones.
+  The absence of an internal owner is the most common cause.
+- Reskilling an existing employee who understands the business is faster and cheaper
+  than hiring someone who understands the tools but not the operation.
+- An engagement that ends in permanent dependency on the consultant has failed,
+  regardless of what it produced.
 
 ## Company family
 
-Trimmie Holdings is the parent. Paul Ann Media handles demand and audience.
-Paul Ann Labs handles operations — AI deployed inside the business itself.
-HomeTimeJobs is an owned product of Paul Ann Media.
+Trimmie Holdings is the parent. Paul Ann Media handles demand — audience, brand,
+pipeline. Paul Ann Labs handles operations. HomeTimeJobs is an owned product of
+Paul Ann Media.
 
 ## Contact
 
-hello@paulannmedia.com
+hello@paulannlabs.com
