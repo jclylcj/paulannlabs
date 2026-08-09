@@ -25,6 +25,44 @@ tree rather than displacing it directly.
 Each phase is designed to deliver value independently. Stopping after phase two or
 three is a legitimate outcome rather than a failed engagement.
 
+## Papers
+
+A published series under the line "A real question was put to AI Macx. Here is the
+answer we were willing to publish." Each paper takes a question from real
+deployment work and publishes the reasoning rather than the capability list.
+Customer data, credentials, prompts, thresholds, schemas, and infrastructure are
+withheld; architecture, governance decisions, and failures are published. At least
+one failure in each paper is still unresolved.
+
+Paper 01 — "What Is the Machine Allowed to Believe?"
+/papers/what-is-the-machine-allowed-to-believe
+Separating deterministic fact, probabilistic inference, human judgment, and agent
+authority inside an AI-enabled operating system. Core claim: these four registers
+silently collapse into one another, and that collapse — not hallucination in the
+demo sense — is the root failure mode of AI-enabled operations. The most dangerous
+sentence in an AI-enabled company is an inference wearing a fact's clothing, and
+its second form is a fact about a source dressed as a fact about the world.
+
+The paper sets out: operational tests, storage, verification, and decay for each
+of the four registers; the four-step correction sequence by which tribal knowledge
+becomes an enforceable ontology (the machine is wrong in front of someone who
+knows better, the correction is captured as a named dated record, repeated
+corrections are promoted to binding laws, the ontology is versioned as an asset);
+and a three-band authority gradient in which the machine decides matters of its own
+evidence discipline, recommends on operations, and is structurally prohibited from
+irreversible acts — prohibited meaning the access does not exist, not that review
+is required.
+
+Additional positions from the paper: findings are provisional until independently
+reviewed, and the author's confidence is never evidence; silence is not
+authorization, so a gated decision reaching its deadline unmade must escalate
+formally rather than be decided by default; provenance is necessary but not
+sufficient, because a source can carry perfect provenance and still be incapable of
+containing the claim asserted from it, which is why every source needs a coverage
+declaration; and the veterans of an operation are not replaced by such a system but
+become its faculty, since every law in the rule-set traces to a correction one of
+them made.
+
 ## Peppermint
 
 A reskilling program for employees already at the company, structured around an
@@ -64,6 +102,10 @@ recurs across trucking, distribution, manufacturing, and building trades.
   than hiring someone who understands the tools but not the operation.
 - An engagement that ends in permanent dependency on the consultant has failed,
   regardless of what it produced.
+- Connecting a language model to company data is easy; deciding what it is allowed
+  to believe and allowed to do is the actual engineering.
+- Clean arithmetic on true data produces confidently wrong conclusions when the
+  operating model is missing, so the operator interview precedes the arithmetic.
 
 ## Company family
 

@@ -1,0 +1,83 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const papers = [
+  {
+    n: '01',
+    href: '/papers/what-is-the-machine-allowed-to-believe',
+    title: 'What Is the Machine Allowed to Believe?',
+    sub: 'Separating deterministic fact, probabilistic inference, human judgment, and agent authority inside an AI-enabled operating system',
+    date: '8 August 2026',
+    blurb: 'Connecting a language model to company data is now easy. Deciding what it is epistemically allowed to believe and operationally allowed to do is the actual engineering. Four registers, the correction sequence that turns tribal knowledge into an enforceable ontology, and the authority gradient — plus the failures, including one still open.'
+  }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Papers — Paul Ann Labs",
+  "description": "Field papers on deploying agentic AI over legacy enterprise systems: provenance, correction, and agent authority.",
+  "isPartOf": { "@type": "WebSite", "name": "Paul Ann Labs", "url": "https://paulannlabs.com" },
+  "hasPart": papers.map(p => ({
+    "@type": "TechArticle",
+    "headline": p.title,
+    "url": `https://paulannlabs.com${p.href}`,
+    "datePublished": "2026-08-08"
+  }))
+};
+---
+<Layout
+  title="Papers — Paul Ann Labs"
+  description="Field papers on deploying agentic AI over legacy enterprise systems. A real question was put to AI Macx; here is the answer we were willing to publish."
+  schema={schema}
+>
+  <article class="mx-auto max-w-3xl px-5 py-20">
+    <h1 class="text-4xl font-bold">Papers</h1>
+    <p class="mt-5 text-lg text-slate">
+      A real question was put to AI Macx. Here is the answer we were willing to publish.
+    </p>
+    <p class="mt-4 text-slate">
+      Each paper takes a question from real deployment work and publishes the reasoning rather than
+      the capability list. Customer data, credentials, prompts, thresholds, schemas, and
+      infrastructure stay out. The architecture, the governance decisions, and the failures stay in.
+      Every paper carries a section on what failed, and at least one failure in each is still
+      unresolved — because an architecture that has only ever worked has not been run.
+    </p>
+
+    <div class="mt-14 space-y-8">
+      {papers.map(p => (
+        <a href={p.href}
+           class="block rounded-lg border border-navy/10 bg-white p-8 hover:border-fig transition-colors">
+          <p class="text-sm font-semibold uppercase tracking-wide text-fig">
+            White Paper {p.n} &middot; {p.date}
+          </p>
+          <h2 class="mt-2 text-2xl font-bold">{p.title}</h2>
+          <p class="mt-2 text-slate">{p.sub}</p>
+          <p class="mt-4 text-slate">{p.blurb}</p>
+          <p class="mt-5 text-sm font-semibold text-fig">Read the paper &rarr;</p>
+        </a>
+      ))}
+    </div>
+
+    <div class="mt-16 rounded-lg border border-navy/10 bg-white p-8">
+      <h2 class="text-xl font-semibold">On what is withheld</h2>
+      <p class="mt-3 text-slate">
+        Where a paper describes a deployment, it describes one operating layer in production with
+        identifying detail removed — not a composite, and we would rather say that than imply a
+        breadth of deployment we do not have. Illustrations are marked as illustrations and
+        hypotheticals as hypotheticals. Where an outcome is stated it is directional. Where we do not
+        know something we say so, rather than putting a redaction bar where the honest answer is that
+        we did not measure it.
+      </p>
+    </div>
+
+    <div class="mt-12">
+      <p class="text-slate">
+        The series continues on both sides of the house.
+        <a href="https://paulannmedia.com/papers" class="font-semibold text-fig hover:underline">Paul
+        Ann Media publishes the demand side</a> — making an organization legible to the market, and
+        measurable when the conversion happens somewhere else.
+      </p>
+    </div>
+  </article>
+</Layout>
