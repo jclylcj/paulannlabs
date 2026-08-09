@@ -1,0 +1,129 @@
+---
+import DiagramFrame from "./DiagramFrame.astro";
+
+interface Phase {
+  phase: string;
+  name: string;
+  figStage: string;
+  description: string;
+}
+
+interface Props {
+  phases?: Phase[];
+}
+
+const phases: Phase[] = Astro.props.phases ?? [
+  { phase: "PHASE 1", name: "Launch",     figStage: "Seed",         description: "one contained process" },
+  { phase: "PHASE 2", name: "Interpret",  figStage: "Epiphyte",     description: "reads what systems emit" },
+  { phase: "PHASE 3", name: "Understand", figStage: "Hemiepiphyte", description: "full operational audit" },
+  { phase: "PHASE 4", name: "Replace",    figStage: "Strangler",    description: "the layer begins doing" },
+  { phase: "PHASE 5", name: "Own",        figStage: "Tree",         description: "legacy becomes archive" },
+];
+
+const panelXs = [10, 210, 410, 610, 810];
+const boxYs = [76, 116, 156];
+---
+
+<DiagramFrame
+  minWidth={720}
+  ariaLabel="Five-phase Strangler Fig methodology progression from Launch through Own."
+  caption="Navy = the client's existing systems · fig green = the layer growing around and reading from the host · gold = the unchanged seed/origin · dashed grey = legacy retained as archive."
+>
+  <svg
+    viewBox="0 0 1000 330"
+    role="img"
+    aria-label="Five panels map Launch to Seed, Interpret to Epiphyte, Understand to Hemiepiphyte, Replace to Strangler, and Own to Tree. Green roots visibly thicken, split, surround the three existing-system boxes and become load-bearing. At Replace one legacy box becomes a dashed archive; at Own all three do."
+  >
+    <defs>
+      <marker id="fig-in" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+        <path d="M0,0 L7,3.5 L0,7 Z" fill="#4A9D6E" />
+      </marker>
+    </defs>
+
+    <rect width="1000" height="330" rx="4" fill="#F5F0EB" />
+
+    {phases.map((item, i) => {
+      const x = panelXs[i];
+      const cx = x + 90;
+      return (
+        <g>
+          <rect x={x} y="18" width="180" height="225" rx="4" fill="#FFFFFF" stroke="#E8E2DC" stroke-width="1.2" />
+
+          <circle cx={cx} cy="44" r="6" fill="#D4883A" />
+
+          {i === 0 && (
+            <text x={x + 95} y="67" text-anchor="middle" fill="#7C8A8A"
+              font-size="7.8" font-weight="700" letter-spacing=".8"
+              font-family="ui-sans-serif, system-ui, sans-serif">CLIENT'S EXISTING SYSTEMS</text>
+          )}
+
+          {boxYs.map((y, bi) => {
+            const ghost = i === 4 || (i === 3 && bi === 0);
+            return (
+              <rect x={x + 54} y={y} width="72" height="25" rx="4" fill="none"
+                stroke={ghost ? "#CFC8C0" : "#1A2F3D"}
+                stroke-width={ghost ? "1.2" : "1.7"}
+                stroke-dasharray={ghost ? "3 3" : undefined} />
+            );
+          })}
+
+          {i === 0 && (
+            <path d={`M ${cx} 51 C ${cx-2} 58, ${cx+2} 64, ${cx} 70`}
+              fill="none" stroke="#4A9D6E" stroke-width="1.5" stroke-linecap="round" />
+          )}
+
+          {i === 1 && (
+            <>
+              <path d={`M ${cx} 51 C ${x+67} 61, ${x+44} 70, ${x+44} 91`}
+                fill="none" stroke="#4A9D6E" stroke-width="2" stroke-linecap="round" />
+              <line x1={x+44} y1="88.5" x2={x+51} y2="88.5" stroke="#4A9D6E" stroke-width="1.6" marker-end="url(#fig-in)" />
+            </>
+          )}
+
+          {i === 2 && (
+            <>
+              <path d={`M ${cx} 51 C ${x+68} 62, ${x+38} 71, ${x+38} 145`}
+                fill="none" stroke="#4A9D6E" stroke-width="2.7" stroke-linecap="round" />
+              <path d={`M ${cx} 51 C ${x+111} 62, ${x+142} 72, ${x+142} 145`}
+                fill="none" stroke="#4A9D6E" stroke-width="2.3" stroke-linecap="round" />
+              {[88.5,128.5].map(y => <line x1={x+38} y1={y} x2={x+51} y2={y} stroke="#4A9D6E" stroke-width="1.6" marker-end="url(#fig-in)" />)}
+              {[88.5,128.5].map(y => <line x1={x+142} y1={y} x2={x+129} y2={y} stroke="#4A9D6E" stroke-width="1.6" marker-end="url(#fig-in)" />)}
+            </>
+          )}
+
+          {i === 3 && (
+            <>
+              <path d={`M ${cx} 51 C ${x+66} 62, ${x+35} 75, ${x+35} 205 Q ${x+35} 218 ${x+50} 218`}
+                fill="none" stroke="#4A9D6E" stroke-width="3.4" stroke-linecap="round" />
+              <path d={`M ${cx} 51 C ${x+114} 62, ${x+145} 75, ${x+145} 205 Q ${x+145} 218 ${x+130} 218`}
+                fill="none" stroke="#4A9D6E" stroke-width="3.1" stroke-linecap="round" />
+              <line x1={x+50} y1="218" x2={x+130} y2="218" stroke="#4A9D6E" stroke-width="3.4" stroke-linecap="round" />
+              {[88.5,128.5,168.5].map(y => <line x1={x+35} y1={y} x2={x+51} y2={y} stroke="#4A9D6E" stroke-width="1.6" marker-end="url(#fig-in)" />)}
+            </>
+          )}
+
+          {i === 4 && (
+            <>
+              <path d={`M ${cx} 51 C ${x+63} 61, ${x+32} 72, ${x+32} 207 Q ${x+32} 222 ${x+49} 222 H ${x+131} Q ${x+148} 222 ${x+148} 207 L ${x+148} 80 Q ${x+148} 66 ${cx} 51`}
+                fill="none" stroke="#4A9D6E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+              {[88.5,128.5,168.5].map(y => <line x1={x+32} y1={y} x2={x+51} y2={y} stroke="#4A9D6E" stroke-width="1.8" marker-end="url(#fig-in)" />)}
+            </>
+          )}
+
+          <text x={cx} y="260" text-anchor="middle" fill="#4A9D6E"
+            font-size="8.8" font-weight="700" letter-spacing="1.1"
+            font-family="ui-sans-serif, system-ui, sans-serif">{item.phase}</text>
+          <text x={cx} y="278" text-anchor="middle" fill="#1A2F3D"
+            font-size="12.5" font-weight="700"
+            font-family="ui-sans-serif, system-ui, sans-serif">{item.name}</text>
+          <text x={cx} y="294" text-anchor="middle" fill="#7C8A8A"
+            font-size="9.5" font-style="italic"
+            font-family="ui-sans-serif, system-ui, sans-serif">{item.figStage}</text>
+          <text x={cx} y="313" text-anchor="middle" fill="#7C8A8A"
+            font-size="8.2"
+            font-family="ui-sans-serif, system-ui, sans-serif">{item.description}</text>
+        </g>
+      );
+    })}
+  </svg>
+</DiagramFrame>

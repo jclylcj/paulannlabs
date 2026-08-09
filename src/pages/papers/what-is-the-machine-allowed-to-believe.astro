@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import DiagramFrame from '../../components/visuals/DiagramFrame.astro';
 
 const title = 'What Is the Machine Allowed to Believe?';
 const description = 'Separating deterministic fact, probabilistic inference, human judgment, and agent authority inside an AI-enabled operating system.';
@@ -276,8 +277,12 @@ const loops = [
     </p>
     <p class="mt-3 text-slate">Here is the shape with the loops left in:</p>
 
-    <figure class="mt-8 overflow-x-auto rounded-lg border border-navy/10 bg-white p-4">
-      <svg viewBox="0 0 900 690" class="h-auto w-full min-w-[660px]" role="img"
+    <DiagramFrame
+      minWidth={660}
+      ariaLabel="Operating-layer architecture with the loops left in"
+      caption="Green: forward flow. Gold: work returning — corrections, escalations, rework. Grey dashed: coverage checks between the critic and the evidence layer."
+    >
+      <svg viewBox="0 0 900 690" role="img"
            aria-label="Architecture diagram showing human operators, orchestration, rule register, controlled action, specialist agents, critic review and evidence layer, connected by forward and backward loops L1 through L8.">
         <defs>
           <marker id="af" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto">
@@ -358,7 +363,7 @@ const loops = [
           <text x="444" y="562" text-anchor="middle" fill="#7C8A8A">coverage checks</text>
         </g>
       </svg>
-    </figure>
+    </DiagramFrame>
 
     <div class="mt-6 space-y-3">
       {loops.map(([k, v]) => (

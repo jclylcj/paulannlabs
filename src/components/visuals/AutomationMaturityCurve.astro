@@ -1,0 +1,89 @@
+---
+import DiagramFrame from "./DiagramFrame.astro";
+
+interface Level {
+  level: number;
+  name: string;
+  meaning: string;
+}
+
+interface Props {
+  intakeLevel?: number;
+  builderThreshold?: number;
+}
+
+const levels: Level[] = [
+  { level: 0, name: "Manual",     meaning: "work happens by hand; tools exist but nobody trusts them" },
+  { level: 1, name: "Assisted",   meaning: "AI used occasionally and individually, no shared practice" },
+  { level: 2, name: "Applied",    meaning: "specific tasks reliably handled; people know its limits" },
+  { level: 3, name: "Integrated", meaning: "AI is part of how a process runs, not an extra step" },
+  { level: 4, name: "Delegated",  meaning: "work handed off with boundaries, checked on exception" },
+  { level: 5, name: "Owned",      meaning: "the team builds and adjusts its own automations" },
+];
+
+const intakeLevel = Astro.props.intakeLevel ?? 1;
+const builderThreshold = Astro.props.builderThreshold ?? 5;
+const xs = [70, 235, 400, 565, 730, 895];
+const ys = [230, 216, 190, 150, 100, 50];
+
+const returnFromIndex = Math.max(1, Math.min(levels.length - 1, builderThreshold - 1));
+const returnToIndex = returnFromIndex - 1;
+const returnStartX = xs[returnFromIndex];
+const returnStartY = ys[returnFromIndex] + 22;
+const returnEndX = xs[returnToIndex] - 15;
+const returnEndY = ys[returnToIndex] + 35;
+const returnControl1X = returnStartX - 55;
+const returnControl1Y = returnStartY + 43;
+const returnControl2X = returnEndX + 70;
+const returnControl2Y = returnEndY;
+const returnLabelX = (returnStartX + returnEndX) / 2 + 10;
+const returnLabelY = Math.max(returnStartY, returnEndY) + 17;
+const returnPath = `M${returnStartX} ${returnStartY} C${returnControl1X} ${returnControl1Y}, ${returnControl2X} ${returnControl2Y}, ${returnEndX} ${returnEndY}`;
+const wrap = (s: string, n = 28) => {
+  const words = s.split(" "); const lines: string[] = []; let line = "";
+  for (const w of words) {
+    if ((line + " " + w).trim().length > n) { lines.push(line); line = w; }
+    else line = (line + " " + w).trim();
+  }
+  if (line) lines.push(line);
+  return lines.slice(0, 3);
+};
+---
+
+<DiagramFrame
+  minWidth={760}
+  ariaLabel="Peppermint automation maturity curve from Manual to Owned."
+  caption="Fig green = increasing operating maturity · gold = Level 5, where a team builds rather than only consumes automation · slate = typical intake and honest backward movement when governance or capability is missing."
+>
+  <svg viewBox="0 0 1000 365" role="img"
+    aria-label="Six levels ascend from Manual, Assisted, Applied, Integrated and Delegated to Owned. Typical intake is around Assisted. The gold point is Level 5 Owned, where the team builds and adjusts its own automations. A dashed return arrow shows that capability or governance gaps can force a step backward.">
+    <defs>
+      <marker id="maturity-forward" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#4A9D6E" /></marker>
+      <marker id="maturity-return" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#7C8A8A" /></marker>
+    </defs>
+    <rect width="1000" height="365" rx="4" fill="#F5F0EB" />
+    <path d="M70 230 C250 222, 405 188, 565 150 S800 72, 895 50" fill="none" stroke="#4A9D6E" stroke-width="3.2" marker-end="url(#maturity-forward)" />
+
+    {levels.map((item, i) => (
+      <g>
+        <circle cx={xs[i]} cy={ys[i]} r={i === builderThreshold ? 8 : 6}
+          fill={i === builderThreshold ? "#D4883A" : "#F5F0EB"}
+          stroke={i === builderThreshold ? "#D4883A" : "#1A2F3D"} stroke-width="2" />
+        <text x={xs[i]} y={ys[i] + 25} text-anchor="middle" fill="#4A9D6E" font-size="8.5" font-weight="700" letter-spacing=".8" font-family="ui-sans-serif, system-ui, sans-serif">LEVEL {item.level}</text>
+        <text x={xs[i]} y={ys[i] + 41} text-anchor="middle" fill="#1A2F3D" font-size="11.5" font-weight="700" font-family="ui-sans-serif, system-ui, sans-serif">{item.name}</text>
+        {wrap(item.meaning, 25).map((line, li) => (
+          <text x={xs[i]} y={ys[i] + 56 + li*11} text-anchor="middle" fill="#7C8A8A" font-size="7.7" font-family="ui-sans-serif, system-ui, sans-serif">{line}</text>
+        ))}
+      </g>
+    ))}
+
+    <line x1={xs[intakeLevel]} y1="318" x2={xs[intakeLevel]} y2={ys[intakeLevel] + 11} stroke="#7C8A8A" stroke-width="1.3" stroke-dasharray="3 3" />
+    <text x={xs[intakeLevel]} y="337" text-anchor="middle" fill="#7C8A8A" font-size="9.5" font-weight="700" font-family="ui-sans-serif, system-ui, sans-serif">TYPICAL INTAKE</text>
+    <text x={xs[intakeLevel]} y="350" text-anchor="middle" fill="#7C8A8A" font-size="8.2" font-family="ui-sans-serif, system-ui, sans-serif">most arrive between Manual + Assisted</text>
+
+    <text x={xs[builderThreshold]} y={ys[builderThreshold] - 20} text-anchor="middle" fill="#1A2F3D" font-size="10" font-weight="700" font-family="ui-sans-serif, system-ui, sans-serif">BUILDS, NOT JUST CONSUMES</text>
+
+    <path d={returnPath} fill="none" stroke="#7C8A8A" stroke-width="1.3" stroke-dasharray="3 3" marker-end="url(#maturity-return)" />
+    <text x={returnLabelX} y={returnLabelY} text-anchor="middle" fill="#7C8A8A" font-size="8.5" font-family="ui-sans-serif, system-ui, sans-serif">governance / capability gap</text>
+  </svg>
+</DiagramFrame>
