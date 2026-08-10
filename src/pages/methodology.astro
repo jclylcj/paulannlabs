@@ -5,7 +5,7 @@ import StranglerFigProgression from '../components/visuals/StranglerFigProgressi
 const faqs = [
   {
     q: 'What is the Strangler Fig methodology?',
-    a: 'A phased approach to deploying AI inside an existing business without replacing the systems already in use. An intelligence layer is deployed alongside current software, begins interpreting the data those systems already produce, and progressively takes on more work until the original tools become optional. The name comes from the strangler fig, which grows around a host tree rather than displacing it directly.'
+    a: 'A phased approach to deploying AI inside an existing business without replacing the systems already in use. An intelligence layer is deployed alongside current software, begins interpreting the data those systems already produce, and progressively takes on more work until the original tools become optional. The name comes from the strangler fig, which grows around a host tree instead of displacing it.'
   },
   {
     q: 'Why not just replace the legacy software?',
@@ -13,11 +13,11 @@ const faqs = [
   },
   {
     q: 'How long does a Strangler Fig deployment take?',
-    a: 'Phase One runs on a monthly basis and produces visible output within weeks. Later phases depend on the complexity of the operation and how quickly an internal owner takes responsibility. Many engagements deliberately stop after the second or third phase, which is a legitimate outcome rather than a failure.'
+    a: 'Phase One runs on a monthly basis and produces visible output within weeks. Later phases depend on the complexity of the operation and how quickly an internal owner takes responsibility. Many engagements deliberately stop after the second or third phase, which is a legitimate outcome, not a failure.'
   },
   {
     q: 'What does it cost to start?',
-    a: 'Phase One is a monthly retainer in the range of $800 to $2,000 depending on scope. The operational audit in the third phase is a fixed project fee, typically $5,000 to $15,000. Later phases are priced per engagement.'
+    a: 'Phase One is priced to be easy to start and easier to stop ... a monthly retainer of $800 to $2,000 depending on scope. That is deliberate, not discounted. A layered deployment only works if the first commitment is small enough to approve without a committee. The third-phase operational audit is a fixed fee, typically $5,000 to $15,000, and it is measured against what it finds. An audit that cannot name more waste than it costs has not done its job. Later phases are priced per engagement, and stopping before them is a normal outcome, not a failed one.'
   },
   {
     q: 'Who is this for?',
@@ -36,7 +36,7 @@ const schema = {
 };
 ---
 <Layout
-  title="The Strangler Fig Methodology — Paul Ann Labs"
+  title="The Strangler Fig Methodology - Paul Ann Labs"
   description="A five-phase approach to deploying AI inside an existing business without replacing the systems already running."
   schema={schema}
 >
@@ -55,42 +55,42 @@ const schema = {
 
     <StranglerFigProgression />
 
-    <h2 class="mt-16 text-2xl font-bold">Phase One — Launch</h2>
+    <h2 class="mt-16 text-2xl font-bold">Phase One ... Launch</h2>
     <p class="mt-3 text-slate">
-      One process, contained. We pick something with a clear boundary and real friction —
+      One process, contained. We pick something with a clear boundary and real friction ...
       often a report someone builds by hand every week. Nothing else changes. The goal is
       a working thing in weeks, not a roadmap in months.
     </p>
 
-    <h2 class="mt-12 text-2xl font-bold">Phase Two — Interpret</h2>
+    <h2 class="mt-12 text-2xl font-bold">Phase Two ... Interpret</h2>
     <p class="mt-3 text-slate">
-      The layer starts reading what your systems already emit. Not new data collection —
+      The layer starts reading what your systems already emit. Not new data collection ...
       interpretation of what's already there. This is where owners typically see something
       about their own operation they'd never had surfaced before.
     </p>
 
-    <h2 class="mt-12 text-2xl font-bold">Phase Three — Understand</h2>
+    <h2 class="mt-12 text-2xl font-bold">Phase Three ... Understand</h2>
     <p class="mt-3 text-slate">
       A full operational audit. What happens in a week, who touches it, where hours
       disappear, and what the vendor stack actually costs versus what it's used for.
       This phase produces a blueprint and usually pays for itself in cancelled software.
     </p>
     <p class="mt-3 text-slate">
-      It also identifies the <strong class="text-navy">Stem</strong> — the person inside
+      It also identifies the <strong class="text-navy">Stem</strong> ... the person inside
       your company who should own this going forward.
     </p>
 
-    <h2 class="mt-12 text-2xl font-bold">Phase Four — Replace</h2>
+    <h2 class="mt-12 text-2xl font-bold">Phase Four ... Replace</h2>
     <p class="mt-3 text-slate">
       The layer moves from observing to doing. One function at a time, with the old system
       still in place until nobody's reaching for it. Reversible at every step, which is
-      what makes it safe enough to actually attempt.
+      what makes it safe enough to attempt at all.
     </p>
 
-    <h2 class="mt-12 text-2xl font-bold">Phase Five — Own</h2>
+    <h2 class="mt-12 text-2xl font-bold">Phase Five ... Own</h2>
     <p class="mt-3 text-slate">
-      The business operates through an AI-native interface. Legacy vendors become archives
-      rather than dependencies. Critically, your Stem runs it — not us. An engagement that
+      The business operates through an AI-native interface. Legacy vendors become archives,
+      not dependencies. Critically, your Stem runs it ... not us. An engagement that
       ends with permanent reliance on the consultant has failed regardless of what it built.
     </p>
 
