@@ -72,18 +72,18 @@ const wrap = (s: string, n = 28) => {
         <text x={xs[i]} y={ys[i] + 25} text-anchor="middle" fill="#4A9D6E" font-size="8.5" font-weight="700" letter-spacing=".8" font-family="ui-sans-serif, system-ui, sans-serif">LEVEL {item.level}</text>
         <text x={xs[i]} y={ys[i] + 41} text-anchor="middle" fill="#1A2F3D" font-size="11.5" font-weight="700" font-family="ui-sans-serif, system-ui, sans-serif">{item.name}</text>
         {wrap(item.meaning, 25).map((line, li) => (
-          <text x={xs[i]} y={ys[i] + 56 + li*11} text-anchor="middle" fill="#7C8A8A" font-size="7.7" font-family="ui-sans-serif, system-ui, sans-serif">{line}</text>
+          <text x={xs[i]} y={ys[i] + 56 + li*11} text-anchor="middle" fill="#5A6B6B" font-size="7.7" font-family="ui-sans-serif, system-ui, sans-serif">{line}</text>
         ))}
       </g>
     ))}
 
     <line x1={xs[intakeLevel]} y1="318" x2={xs[intakeLevel]} y2={ys[intakeLevel] + 11} stroke="#7C8A8A" stroke-width="1.3" stroke-dasharray="3 3" />
-    <text x={xs[intakeLevel]} y="337" text-anchor="middle" fill="#7C8A8A" font-size="9.5" font-weight="700" font-family="ui-sans-serif, system-ui, sans-serif">TYPICAL INTAKE</text>
-    <text x={xs[intakeLevel]} y="350" text-anchor="middle" fill="#7C8A8A" font-size="8.2" font-family="ui-sans-serif, system-ui, sans-serif">most arrive between Manual + Assisted</text>
+    <text x={xs[intakeLevel]} y="337" text-anchor="middle" fill="#5A6B6B" font-size="9.5" font-weight="700" font-family="ui-sans-serif, system-ui, sans-serif">TYPICAL INTAKE</text>
+    <text x={xs[intakeLevel]} y="350" text-anchor="middle" fill="#5A6B6B" font-size="8.2" font-family="ui-sans-serif, system-ui, sans-serif">most arrive between Manual + Assisted</text>
 
     <text x={xs[builderThreshold]} y={ys[builderThreshold] - 20} text-anchor="middle" fill="#1A2F3D" font-size="10" font-weight="700" font-family="ui-sans-serif, system-ui, sans-serif">BUILDS, NOT JUST CONSUMES</text>
 
     <path d={returnPath} fill="none" stroke="#7C8A8A" stroke-width="1.3" stroke-dasharray="3 3" marker-end="url(#maturity-return)" />
-    <text x={returnLabelX} y={returnLabelY} text-anchor="middle" fill="#7C8A8A" font-size="8.5" font-family="ui-sans-serif, system-ui, sans-serif">governance / capability gap</text>
+    <text x={returnLabelX} y={returnLabelY} text-anchor="middle" fill="#5A6B6B" font-size="8.5" font-family="ui-sans-serif, system-ui, sans-serif">governance / capability gap</text>
   </svg>
 </DiagramFrame>
