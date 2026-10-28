@@ -10,8 +10,8 @@ const phases = [
 ];
 ---
 <Layout title="Paul Ann Labs - AI Deployed Inside the Business">
-  <section class="relative overflow-hidden bg-navy text-cream">
-    <div class="relative z-10 mx-auto max-w-6xl px-5 py-16 lg:py-32">
+  <section class="relative flex flex-col overflow-hidden bg-navy text-cream lg:block">
+    <div class="relative z-10 mx-auto w-full max-w-6xl px-5 pt-6 pb-14 sm:pt-10 sm:pb-16 lg:py-32">
       <div class="max-w-xl lg:max-w-lg xl:max-w-xl">
       <p class="text-sm font-semibold uppercase tracking-widest text-fig">Paul Ann Labs</p>
       <h1 class="mt-5 text-4xl font-bold leading-tight sm:text-5xl text-balance">
@@ -28,7 +28,9 @@ const phases = [
       </a>
       </div>
     </div>
-    <div class="relative h-64 sm:h-80 lg:absolute lg:inset-y-0 lg:right-0 lg:left-[40%] lg:h-full">
+    <div class="relative order-first h-64 sm:h-80 lg:order-none lg:absolute lg:inset-y-0 lg:right-0 lg:left-[40%] lg:h-full">
+      <picture>
+      <source media="(max-width: 1023px)" srcset="/media/hero-pal-r2-phone.webp" width="865" height="569" />
       <img
         src="/media/hero-pal-r2-1900.webp"
         srcset="/media/hero-pal-r2-1000.webp 1000w, /media/hero-pal-r2-1900.webp 1900w"
@@ -39,6 +41,8 @@ const phases = [
         fetchpriority="high"
         class="h-full w-full object-cover"
       />
+      </picture>
+      <div class="pointer-events-none absolute inset-x-0 bottom-0 h-10 lg:hidden" style="background: linear-gradient(180deg, rgba(26,47,61,0) 0%, rgba(26,47,61,1) 100%)"></div>
       <div class="pointer-events-none absolute inset-0 hidden lg:block" style="background: linear-gradient(90deg, rgba(26,47,61,1) 0%, rgba(26,47,61,0.6) 18%, rgba(26,47,61,0) 40%)"></div>
     </div>
   </section>
