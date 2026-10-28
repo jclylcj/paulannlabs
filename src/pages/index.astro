@@ -10,11 +10,12 @@ const phases = [
 ];
 ---
 <Layout title="Paul Ann Labs - AI Deployed Inside the Business">
-  <section class="bg-navy text-cream">
-    <div class="mx-auto max-w-4xl px-5 py-24">
+  <section class="relative overflow-hidden bg-navy text-cream">
+    <div class="relative z-10 mx-auto max-w-6xl px-5 py-16 lg:py-32">
+      <div class="max-w-xl lg:max-w-lg xl:max-w-xl">
       <p class="text-sm font-semibold uppercase tracking-widest text-fig">Paul Ann Labs</p>
-      <h1 class="mt-5 text-4xl font-bold leading-tight sm:text-5xl">
-        What would it mean to walk in<br />already knowing what happened?
+      <h1 class="mt-5 text-4xl font-bold leading-tight sm:text-5xl text-balance">
+        What would it mean to walk in already knowing what happened?
       </h1>
       <p class="mt-6 max-w-2xl text-lg text-slate-light">
         Not a dashboard. Not another subscription. An intelligence layer that reads what
@@ -25,6 +26,20 @@ const phases = [
          class="mt-9 inline-block rounded bg-fig px-8 py-3 font-semibold text-navy hover:bg-fig-light transition-colors">
         Start Phase One
       </a>
+      </div>
+    </div>
+    <div class="relative h-64 sm:h-80 lg:absolute lg:inset-y-0 lg:right-0 lg:left-[40%] lg:h-full">
+      <img
+        src="/media/hero-pal-r2-1900.webp"
+        srcset="/media/hero-pal-r2-1000.webp 1000w, /media/hero-pal-r2-1900.webp 1900w"
+        sizes="(min-width: 1024px) 100vw, 170vw"
+        alt="An open service bay lit from inside at blue hour, with a pickup and workers"
+        width="1900"
+        height="830"
+        fetchpriority="high"
+        class="h-full w-full object-cover"
+      />
+      <div class="pointer-events-none absolute inset-0 hidden lg:block" style="background: linear-gradient(90deg, rgba(26,47,61,1) 0%, rgba(26,47,61,0.6) 18%, rgba(26,47,61,0) 40%)"></div>
     </div>
   </section>
 
