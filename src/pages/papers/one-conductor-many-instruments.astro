@@ -1,0 +1,202 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'One Conductor, Many Instruments';
+const description = 'How we run one orchestrating model, outside models commissioned per question, and a separate checker on our own work ... with the owner holding every key.';
+const published = '2026-10-29';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": title,
+  "description": description,
+  "datePublished": published,
+  "dateModified": published,
+  "inLanguage": "en-US",
+  "author": { "@type": "Organization", "name": "Paul Ann Labs", "url": "https://paulannlabs.com" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Paul Ann Labs",
+    "url": "https://paulannlabs.com",
+    "parentOrganization": { "@type": "Organization", "name": "Trimmie Holdings" }
+  },
+  "about": ["multi-model AI", "AI orchestration", "human-in-the-loop", "AI governance", "verification"]
+};
+
+const roles = [
+  {
+    name: 'The owner',
+    body: 'Approves every grant of access and every new job. Every push, post and send is the owner’s click. Nothing goes live without it.'
+  },
+  {
+    name: 'The orchestrator',
+    body: 'Claude, from Anthropic, working in a cloud workspace. It plans, writes the code, builds and tests each change in its workspace, measures the live sites in a headless browser, writes tickets for the checker and keeps the written record. It does not push to production. It hands the owner a command and waits for “pushed.”'
+  },
+  {
+    name: 'The checker',
+    body: 'Hiro, a separate assistant that runs on its own computer, outside the orchestrator’s workspace. Its rules let it read one shared folder and the public web, and write into its own outbox and nowhere else. For an approved job it may start helper bots. It stays the one accountable voice, and every result names which bot measured what.'
+  },
+  {
+    name: 'The outside voices',
+    body: 'ChatGPT, Gemini and Meta AI, commissioned one question at a time through their own chat apps. Each gets the same brief and the same review image. What they say is input ... never instruction.'
+  }
+];
+
+const fence = [
+  'One shared folder, two inboxes: tickets go to the checker, results come back.',
+  'The checker acts only on tickets marked open. Draft means waiting for the owner. Closed means done.',
+  'A stop file. While it exists, the checker and every helper do nothing.',
+  'Nothing is overwritten. A correction is a new file.',
+  'Every claim in a result carries its basis: measured this run, read from a file, or assessed.',
+  'Its rules bar the checker from pushing, sending, posting, buying or signing, and from holding any payment or personal social account credential.',
+  'Trust comes in phases. The checker’s first phase is watching: daily site checks and expiry dates, no new access. A building phase is decided only after two clean weeks.'
+];
+
+const scores = [
+  { site: 'HomeTimeJobs', gpt: '8.5', meta: '8', gem: '8' },
+  { site: 'Paul Ann Media', gpt: '7', meta: '5', gem: '7' },
+  { site: 'Paul Ann Labs', gpt: '7.5', meta: '4', gem: '6' }
+];
+---
+<Layout title={`${title} - Paul Ann Labs`} description={description} schema={schema}>
+  <article class="mx-auto max-w-3xl px-5 py-20">
+    <a href="/papers/" class="inline-flex min-h-11 items-center text-sm font-semibold text-fig-ink hover:underline">&larr; All papers</a>
+    <p class="mt-6 text-sm font-semibold uppercase tracking-wide text-fig-ink">Paper 01 &middot; 29 October 2026</p>
+    <h1 class="mt-3 text-4xl font-bold leading-tight">{title}</h1>
+    <p class="mt-4 text-xl text-slate">
+      How we run one orchestrating model, outside models commissioned per question, and a separate
+      checker on our own work ... with the owner holding every key.
+    </p>
+
+    <p class="mt-10 text-lg text-navy">
+      Every lab now ships a capable model. The question we kept running into was not which one is
+      best. It was how to put several of them on the same job without anyone, human or machine,
+      losing track of who decided what.
+    </p>
+    <p class="mt-4 text-slate">
+      This paper describes the setup we use on our own work: building and checking the websites for
+      Paul Ann Labs, Paul Ann Media and HomeTimeJobs. It is not a client deployment. It is small, it
+      is young, and it has already failed in ways we describe below.
+    </p>
+
+    <h2 class="mt-14 text-2xl font-bold">The seats</h2>
+    <div class="mt-6 space-y-5">
+      {roles.map(r => (
+        <div class="rounded-lg border border-navy/10 bg-white p-6">
+          <p class="font-semibold text-navy">{r.name}</p>
+          <p class="mt-2 text-slate">{r.body}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-6 text-slate">
+      People will say the setup is controlled by AI. It isn’t. It is run by a model and governed by
+      the owner. The difference is the whole design.
+    </p>
+
+    <h2 class="mt-14 text-2xl font-bold">The seat is the contract, not the model</h2>
+    <p class="mt-4 text-slate">
+      We call the outside voices interchangeable because the rules do not change with the model in a
+      seat. The brief is written once and sent unchanged to each. When Gemini failed twice on
+      a tall review image, we sent it a copy 1,000 pixels wide and the run went on. Changing a voice
+      changes what we hear. It does not change how the work gets checked.
+    </p>
+    <p class="mt-4 text-slate">
+      There is one more rule about outside voices. When a question also goes to the checker, the
+      checker sees what the outside models said before it concludes, and answers point by point:
+      agree, disagree, or measured differently. Their text can never widen a ticket or change a rule.
+    </p>
+
+    <h2 class="mt-14 text-2xl font-bold">The fence</h2>
+    <ul class="mt-6 space-y-3">
+      {fence.map(f => (
+        <li class="flex gap-3 text-slate"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-fig-ink" aria-hidden="true"></span><span>{f}</span></li>
+      ))}
+    </ul>
+
+    <h2 class="mt-14 text-2xl font-bold">A worked example: the rollout review</h2>
+    <p class="mt-4 text-slate">
+      On 27 October, after a round of new home pages, we asked three outside models one question
+      about all three sites: does the first screen make the right visitor stay? Scores, 1 to 10:
+    </p>
+    <div class="mt-6 overflow-x-auto rounded-lg border border-navy/10 bg-white">
+      <table class="w-full text-left text-sm">
+        <thead class="border-b border-navy/10 text-navy">
+          <tr><th class="p-4 font-semibold">Site</th><th class="p-4 font-semibold">ChatGPT</th><th class="p-4 font-semibold">Meta AI</th><th class="p-4 font-semibold">Gemini</th></tr>
+        </thead>
+        <tbody class="text-slate">
+          {scores.map(s => (
+            <tr class="border-b border-navy/5 last:border-0"><td class="p-4">{s.site}</td><td class="p-4">{s.gpt}</td><td class="p-4">{s.meta}</td><td class="p-4">{s.gem}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-6 text-slate">
+      Then the checker tested the six claims that could be checked, on the live sites. It agreed with
+      one, disagreed with three, and found two that held only in part or with different numbers. One model said our phone photo
+      cut a truck in half; the live file showed the whole pickup and both workers. The same model said a teal
+      button failed contrast. The checker measured 4.34 to 1, under the 4.5 to 1 line. That one was
+      right.
+    </p>
+    <p class="mt-4 text-slate">
+      All three voices agreed that on a phone, the button belonged on the first screen. The checker
+      put numbers on it. On a 375 by 667 screen the buttons ended at 752, 791 and 836 pixels ... below
+      the fold on all three sites. We shortened the phone photos, moved the button above the body copy,
+      added a phone menu and adjusted two accent colors until text on them passed. After the owner pushed, the checker measured
+      again: the buttons now end at 584, 595 and 640 pixels, inside the 667-pixel screen.
+    </p>
+    <p class="mt-4 text-slate">
+      The recheck covered 14 items and all 14 passed, with a few small leftovers named. Its contrast
+      audit of text on solid backgrounds found 0 failures across 54 page and width combinations.
+    </p>
+    <div class="mt-6 rounded-lg border border-navy/10 border-l-4 border-l-fig bg-white p-6 text-slate">
+      The scores are opinions. That is why we checked them. Three disagreements out of six is not a
+      knock on the outside models. It is the reason the checker exists.
+    </div>
+
+    <h2 class="mt-14 text-2xl font-bold">What failed</h2>
+    <p class="mt-4 text-slate">
+      The orchestrator’s own check of the new photos did not test the first screen on a small phone.
+      The owner found it, looking at the sites on a phone. Every hero review now includes a 375 by
+      667 check.
+    </p>
+    <p class="mt-4 text-slate">
+      The orchestrator edited a site while the owner was pushing. The live commit pointed at an image
+      that had not been committed; a later commit fixed it. The rule now: no edits between handing
+      over a push and hearing “pushed.”
+    </p>
+    <p class="mt-4 text-slate">
+      Generated pages once showed an internal draft note on the page itself. It was caught before it
+      went live. A browser test also ran into sites the browser tool could not reach, three times,
+      before the orchestrator handed it to the owner.
+    </p>
+    <p class="mt-4 text-slate">
+      The orchestrator also runs internal reviewer roles. They are the same model wearing a different
+      hat. They are useful, and they are not independent. That is why the checker and the outside
+      voices exist, and why the owner still reads everything.
+    </p>
+    <p class="mt-4 text-slate">
+      Still open: one navigation link on HomeTimeJobs is 23 pixels wide, a pixel under the minimum. It
+      is on the list.
+    </p>
+
+    <h2 class="mt-14 text-2xl font-bold">What we don’t claim</h2>
+    <ul class="mt-6 space-y-3">
+      <li class="flex gap-3 text-slate"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-fig-ink" aria-hidden="true"></span><span>It is not autonomous. It runs on the owner’s approvals.</span></li>
+      <li class="flex gap-3 text-slate"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-fig-ink" aria-hidden="true"></span><span>We have run it on our own sites only. This paper is not evidence of results for anyone else.</span></li>
+      <li class="flex gap-3 text-slate"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-fig-ink" aria-hidden="true"></span><span>We have not measured which seat adds the most. When we do, we will say how we counted.</span></li>
+    </ul>
+
+    <div class="mt-16 rounded-lg border border-navy/10 bg-white p-8">
+      <h2 class="text-xl font-semibold">The other side of the house</h2>
+      <p class="mt-3 text-slate">
+        Paul Ann Media wrote up the same work from the brand side, with the founder: what we built, who
+        decided what, and what we can’t claim yet.
+      </p>
+      <a href="https://paulannmedia.com/papers/we-built-our-own-house-first/" class="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-fig-ink hover:underline">Read “We Built Our Own House First” &rarr;</a>
+      <p class="mt-6 text-slate">
+        If you want this kind of discipline on your own operation, it starts small.
+      </p>
+      <a href="/methodology/#phase-one" class="mt-2 inline-flex min-h-11 items-center text-sm font-semibold text-fig-ink hover:underline">See how Phase One works &rarr;</a>
+    </div>
+  </article>
+</Layout>
