@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
 
 const phases = [
   { n: '01', name: 'Launch', body: 'A small, contained start. One process, one pipeline, no disruption to anything running today.' },
@@ -116,10 +117,7 @@ const phases = [
         One process. One month. If the intelligence layer doesn't show you something you
         didn't already know, there's no reason to continue ... and we'll say so first.
       </p>
-      <a href="mailto:john@yourlastcorporatejob.com?subject=Paul%20Ann%20Labs%20inquiry"
-         class="mt-8 inline-block rounded bg-fig px-8 py-3 font-semibold text-navy hover:bg-fig-light transition-colors">
-        john@yourlastcorporatejob.com
-      </a>
+      <ContactForm />
     </div>
   </section>
 </Layout>

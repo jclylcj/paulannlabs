@@ -6,8 +6,7 @@
 
 ## What this company does
 
-Paul Ann Labs applies AI to the operating core of a business: payroll, safety,
-dispatch, maintenance, purchasing, and similar back-office functions. It is not a
+Paul Ann Labs applies AI to the operating core of a business: scheduling, billing, purchasing, inventory, service, and similar back-office functions. It is not a
 marketing firm and does not sell software licenses. Engagements are structured as
 phased deployments with an internal owner as the intended end state.
 
@@ -84,4 +83,4 @@ Paul Ann Media.
 
 ## Contact
 
-john@yourlastcorporatejob.com
+Use the contact form at https://paulannlabs.com/#contact
